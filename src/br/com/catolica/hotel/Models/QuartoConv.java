@@ -1,11 +1,11 @@
 package br.com.catolica.hotel.Models;
 
-public abstract class Quarto {
+public class QuartoConv {
     private int num;
     private boolean ocupado;
     private Cliente cliente;
 
-    public Quarto(int num, boolean ocupado, Cliente cliente) {
+    public QuartoConv(int num, boolean ocupado, Cliente cliente) {
         this.num = num;
         this.ocupado = false;
         this.cliente = null;
