@@ -25,7 +25,6 @@ public class Gerente extends Funcionario implements IAcessoADM {
         }
         return false;
     }
-
     @Override
     public boolean demitir(Funcionario func) {
         for (int i = 0; i < funcionarios.length; i++) {

@@ -23,7 +23,6 @@ public class ClienteVip extends Cliente implements IAcessoCliVip, IAcessoCliConv
         }
         return false;
     }
-
     @Override
     public boolean checkOut(Quarto quarto, Cliente cli, int numQuarto) {
         hotel.getQuartos(numQuarto);

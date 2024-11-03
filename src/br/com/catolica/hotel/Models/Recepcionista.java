@@ -34,7 +34,6 @@ public class Recepcionista extends Funcionario implements IAcessoRecep {
         }
         return false;
     }
-
     @Override
     public boolean reservaVip(QuartoVip quartoVip, ClienteVip clienteVip, int numVip, EnumTipoCliente tipoCliente) {
             hotel.getQuartos(numVip);

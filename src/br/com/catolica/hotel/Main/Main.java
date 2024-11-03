@@ -56,7 +56,7 @@ public class Main {
                             System.out.println("digite um documento valido");
                             break;
                         }
-                            //sistema de adicionar a lista
+                        //sistema de adicionar a lista
                         System.out.println("Cliente cadastrado com Sucesso");
                         break;
 
