@@ -1,6 +1,7 @@
 package br.com.catolica.hotel.Main;
 
 import br.com.catolica.hotel.Enums.EnumTipoCliente;
+import br.com.catolica.hotel.Enums.EnumTipoQuartos;
 import br.com.catolica.hotel.Models.*;
 
 import java.util.Scanner;
@@ -13,9 +14,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         boolean estaVerificado = false;
-        ClienteConv[] clientes = new ClienteConv[15];
-        ClienteVip[] clientesVips = new ClienteVip[5];
-        Funcionario[] funcionarios = new Funcionario[5];
+        ClienteConv[] clientes = new ClienteConv[6];
+        ClienteVip[] clientesVips = new ClienteVip[6];
+        QuartoConv[] quartoConvs = new QuartoConv[6];
+        QuartoVip[] quartoVips = new QuartoVip[6];
+        Funcionario[] funcionarios = new Funcionario[6];
+        Hotel hotel = new Hotel("Hotel transilvania","633424",quartoConvs,quartoVips);
+        
         while (true) {
             if (!estaVerificado){
                 System.out.println("\n--- Tela de Login ---");
@@ -30,6 +35,12 @@ public class Main {
                     System.out.println("Usuario ou senha incorretos, tente novamente");
                 }
             }else {
+                for (int i = 1; i < quartoConvs.length; i++) {
+                    if (quartoConvs[i] == null){
+                        quartoConvs[i] = new QuartoConv(i, false,null);
+                        System.out.println(quartoConvs[i]);
+                    }
+                }
                 System.out.println("\n--- Menu ADM ---");
                 System.out.println("1. Cadastrar Cliente");
                 System.out.println("2. Cadastrar ClienteVip");
@@ -43,21 +54,34 @@ public class Main {
                 switch (opcao){
 
                     case 1:
-                        System.out.println("--- Cadastrar Clientes ---");
-                        System.out.print("Digite seu nome: ");
-                        String nome = input.next();
-                        if (nome.length() < 2){
-                            System.out.println("digite um nome valido!");
+                        System.out.print("Quantos Clientes deseja cadastrar? ");
+                        int qntdCli = input.nextInt();
+                        for (int c = 0; c < qntdCli; c++) {
+                            System.out.println("--- Cadastrar Clientes ---");
+                            System.out.print("Digite seu nome: ");
+                            String nome = input.next();
+                            if (nome.length() < 2){
+                                System.out.println("digite um nome valido!");
+                                break;
+                            }
+                            System.out.print("Digite seu documento: ");
+                            String doc = input.next();
+                            if (doc.length() < 3) {
+                                System.out.println("digite um documento valido");
+                                break;
+                            }
+
+                            clientes[c] = new ClienteConv(nome,doc,EnumTipoCliente.CONVENCIONAL);
+                            System.out.print("em qual quarto deseja se hospedar? ");
+                            int numQuarto = input.nextInt();
+                            for (int i = 1; i < quartoConvs.length; i++) {
+                                if (numQuarto > 0 && numQuarto == quartoConvs[i].getNum()){
+                                    quartoConvs[numQuarto] = new QuartoConv(numQuarto,true,new ClienteConv(nome,doc,EnumTipoCliente.CONVENCIONAL));
+                                }
+                            }
+                            System.out.println("Cliente cadastrado com Sucesso");
                             break;
                         }
-                        System.out.print("Digite seu documento: ");
-                        String doc = input.next();
-                        if (doc.length() < 3) {
-                            System.out.println("digite um documento valido");
-                            break;
-                        }
-                        //sistema de adicionar a lista
-                        System.out.println("Cliente cadastrado com Sucesso");
                         break;
 
                     case 2:
@@ -71,15 +95,15 @@ public class Main {
                         break;
                     case 3:
                         System.out.println("--- Clientes Convencionais ---");
-                        for (int i = 0; i < clientes.length; i++) {
-                            if (clientes[i].getNome() == null) {
+                        for (int i = 1; i < clientes.length; i++) {
+                            if (clientes[i] == null) {
                                 System.out.println("Quarto Livre!!");
                             }else {
-                                System.out.println(clientes[i].getNome());
+                                System.out.println(quartoConvs[i].toString());
                             }
                         }
                         System.out.println("--- Clientes Vip's ---");
-                        for (int i = 0; i < clientesVips.length; i++) {
+                        for (int i = 1; i < clientesVips.length; i++) {
                             if (clientesVips[i] == null) {
                                 System.out.println("Quarto Livre!!");
                             }else {

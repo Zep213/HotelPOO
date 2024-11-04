@@ -25,4 +25,5 @@ public abstract class Cliente {
         return tipoCliente;
     }
 
+
 }

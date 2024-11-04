@@ -1,19 +1,21 @@
 package br.com.catolica.hotel.Models;
+import br.com.catolica.hotel.Enums.EnumTipoQuartos;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Hotel {
     private String nome;
     private String cep;
-    private Quarto[] quartos;
+    private QuartoConv[] quartos;
     private QuartoVip[] quartosVips;
 
-    public Hotel(String nome, String cep, Quarto[] quartos) {
+    public Hotel(String nome, String cep, QuartoConv[] quartos,QuartoVip[] quartoVip) {
         this.nome = nome;
         this.cep = cep;
         this.quartos = quartos;
+        this.quartosVips = quartoVip;
     }
-
     public String getNome() {
         return nome;
     }
@@ -36,7 +38,7 @@ public class Hotel {
     public void exibirStatusQuartos() {
         System.out.println("Status dos quartos:");
         for (int i = 0; i < quartos.length; i++) {
-            System.out.println(quartos);
+            System.out.println(quartos[i].toString());
 
         }
     }
@@ -54,7 +56,7 @@ public class Hotel {
     public void exibirStatusQuartosVips() {
         System.out.println("Status dos quartos:");
         for (int i = 0; i < quartosVips.length; i++) {
-            System.out.println(quartosVips);
+            System.out.println(quartosVips[i].toString());
 
         }
     }
