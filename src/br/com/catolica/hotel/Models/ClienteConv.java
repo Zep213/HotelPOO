@@ -7,8 +7,8 @@ public class ClienteConv extends Cliente implements IAcessoCliConv {
     Hotel hotel;
     ClienteConv cliente;
     QuartoConv[] quartoConv;
-    public ClienteConv(String nome, String senha, EnumTipoCliente tipoCliente) {
-        super(nome, senha, tipoCliente);
+    public ClienteConv(String nome, String doc, EnumTipoCliente tipoCliente) {
+        super(nome, doc, tipoCliente);
     }
     @Override
     public boolean reservar(Quarto quarto, Cliente cli, int numQuarto) {

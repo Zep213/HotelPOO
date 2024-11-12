@@ -4,12 +4,12 @@ import br.com.catolica.hotel.Enums.EnumTipoCliente;
 
 public abstract class Cliente {
     private String nome;
-    private String senha;
+    private String doc;
     private EnumTipoCliente tipoCliente;
 
-    public Cliente(String nome, String senha, EnumTipoCliente tipoCliente) {
+    public Cliente(String nome, String doc, EnumTipoCliente tipoCliente) {
         this.nome = nome;
-        this.senha = senha;
+        this.doc = doc;
         this.tipoCliente = tipoCliente;
     }
 
@@ -18,7 +18,7 @@ public abstract class Cliente {
     }
 
     public String getDoc() {
-        return senha;
+        return doc;
     }
 
     public EnumTipoCliente getTipoCliente() {

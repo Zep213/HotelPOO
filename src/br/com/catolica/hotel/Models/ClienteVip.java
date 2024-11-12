@@ -8,8 +8,8 @@ public class ClienteVip extends Cliente implements IAcessoCliVip, IAcessoCliConv
     Hotel hotel;
     EnumTipoCliente tipoCliente;
 
-    public ClienteVip(String nome, String senha, EnumTipoCliente tipoCliente) {
-        super(nome, senha, tipoCliente);
+    public ClienteVip(String nome, String docVip, EnumTipoCliente tipoCliente) {
+        super(nome, docVip, tipoCliente);
     }
 
     @Override
