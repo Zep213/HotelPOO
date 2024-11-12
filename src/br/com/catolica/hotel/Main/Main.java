@@ -6,7 +6,6 @@ import br.com.catolica.hotel.Enums.EnumTipoQuartos;
 import br.com.catolica.hotel.Models.*;
 
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Main {
 
