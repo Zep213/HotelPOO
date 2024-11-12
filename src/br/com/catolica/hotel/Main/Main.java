@@ -111,7 +111,7 @@ public class Main {
                         if (clientesVips[i] == null) {
                             System.out.println("espaço Livre!!");
                         }else {
-                            System.out.println("quarto ocupado por " + clientesVips[i].getNome());
+                            System.out.println(clientesVips[i].getNome());
                         }
                     }
                     break;
