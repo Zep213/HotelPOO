@@ -38,7 +38,7 @@ public class Recepcionista extends Funcionario implements IAcessoRecep {
     public boolean reservaVip(QuartoVip quartoVip, ClienteVip clienteVip, int numVip, EnumTipoCliente tipoCliente) {
             hotel.getQuartos(numVip);
             if (quartoVip != null && !quartoVip.isOcupadoVip()) {
-                quartoVip.isOcupadoVip(clienteVip);
+                quartoVip.setOcupadoVip(clienteVip);
                 System.out.printf("O quarto %d foi ocupado por %s", numVip, clienteVip.getNome());
             } else {
                 System.out.printf("O quarto %d ja esta ocupado ou é invalido", numVip);

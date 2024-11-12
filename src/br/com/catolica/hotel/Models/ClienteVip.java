@@ -8,8 +8,8 @@ public class ClienteVip extends Cliente implements IAcessoCliVip, IAcessoCliConv
     Hotel hotel;
     EnumTipoCliente tipoCliente;
 
-    public ClienteVip(String nome, String doc, EnumTipoCliente tipoCliente) {
-        super(nome, doc, tipoCliente);
+    public ClienteVip(String nome, String senha, EnumTipoCliente tipoCliente) {
+        super(nome, senha, tipoCliente);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class ClienteVip extends Cliente implements IAcessoCliVip, IAcessoCliConv
     public boolean reservaVip(QuartoVip quartoVip, ClienteVip clienteVip, int numQuarto, EnumTipoCliente tipoCliente) {
         hotel.getQuartos(numQuarto);
         if (quartoVip != null && !quartoVip.isOcupadoVip()) {
-            quartoVip.isOcupadoVip(clienteVip);
+            quartoVip.setOcupadoVip(clienteVip);
             System.out.printf("O quarto %d foi ocupado por %s", numQuarto, clienteVip.getNome());
         } else {
             System.out.printf("O quarto %d ja esta ocupado ou é invalido", numQuarto);

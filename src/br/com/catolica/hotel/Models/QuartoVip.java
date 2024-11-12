@@ -24,7 +24,7 @@ public class QuartoVip {
         return clienteVip;
     }
 
-    public void isOcupadoVip(ClienteVip clienteVip) {
+    public void setOcupadoVip(ClienteVip clienteVip) {
         this.clienteVip = clienteVip;
         this.ocupadoVip = (clienteVip != null);
     }
